@@ -1,14 +1,14 @@
 variable "create_iam_group" {
   description = "Bool value to create new IAM Group or not."
   type        = bool
-  default     = false  
+  default     = false
 }
 
 
 variable "create_iam_group_membership" {
   description = "Bool value to create new IAM Group membership or not."
   type        = bool
-  default     = false  
+  default     = false
 }
 
 variable "iam_group_config" {
