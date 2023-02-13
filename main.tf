@@ -17,7 +17,14 @@ module "iam_group_membership" {
 module "iam_role" {
   count = var.create_iam_role ? 1 : 0
 
-  source = "./module/iam_role"  
+  source = "./module/iam-role"  
   create_aws_iam_role = var.create_iam_role
   iam_role_config = var.iam_role_config
+}
+
+module "iam_policy_document" {
+  count = var.create_iam_policy_document ? 1 : 0
+
+  source = "./module/iam-policy-documetn"
+  iam_policy_document = var.iam_policy_document
 }
