@@ -13,3 +13,11 @@ module "iam_group_membership" {
   create_iam_group_membership = var.create_iam_group_membership
   iam_group_membership_config = var.iam_group_membership_config
 }
+
+module "iam_role" {
+  count = var.create_iam_role ? 1 : 0
+
+  source = "./module/iam_role"  
+  create_aws_iam_role = var.create_iam_role
+  iam_role_config = var.iam_role_config
+}
