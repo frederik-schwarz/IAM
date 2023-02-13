@@ -4,4 +4,3 @@ resource "aws_iam_group" "dev_managed" {
   name = var.iam_group_config.name
   path = var.iam_group_config.path
 }
-

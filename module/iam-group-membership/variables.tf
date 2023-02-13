@@ -11,4 +11,5 @@ variable "iam_group_membership_config" {
     users = optional(list(string), null)
     group = optional(string, null)
   })
+  default = {}
 }

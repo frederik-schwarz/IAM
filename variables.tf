@@ -16,6 +16,7 @@ variable "iam_group_config" {
     name = optional(string, null)
     path = optional(string, null)
   })
+  default = {}
 }
 
 variable "iam_group_membership_config" {
@@ -25,4 +26,5 @@ variable "iam_group_membership_config" {
     users = optional(list(string), null)
     group = optional(string, null)
   })
+  default = {}
 }

@@ -10,6 +10,5 @@ variable "iam_group_config" {
     name = optional(string, null)
     path = optional(string, null)
   })
+  default = {}
 }
-
-
