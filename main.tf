@@ -14,13 +14,13 @@ module "iam_group_membership" {
   iam_group_membership_config = var.iam_group_membership_config
 }
 
-# module "iam_role" {
-#   count = var.create_iam_role ? 1 : 0
-#   source = "./module/iam-role"
+module "iam_role" {
+  count = var.create_iam_role ? 1 : 0
+  source = "./module/iam-role"
 
-#   create_iam_role = var.create_iam_role
-#   iam_role_config = var.iam_role_config
-# }
+  create_iam_role = var.create_iam_role
+  iam_role_config = var.iam_role_config
+}
 
 module "iam_policy_document" {
   count = var.create_iam_policy_document ? 1 : 0
@@ -30,10 +30,10 @@ module "iam_policy_document" {
   iam_policy_document_config = var.iam_policy_document_config
 }
 
-# module "iam_policy" {
-#   count = var.create_iam_policy ? 1 : 0
+module "iam_policy" {
+  count = var.create_iam_policy ? 1 : 0
   
-#   source = "./module/iam_policy"
-#   create_iam_policy = var.create_iam_policy
-#   iam_policy_config = var.iam_policy_config
-# }
+  source = "./module/iam_policy"
+  create_iam_policy = var.create_iam_policy
+  iam_policy_config = var.iam_policy_config
+}
