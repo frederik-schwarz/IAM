@@ -7,7 +7,7 @@ variable "create_iam_policy_document" {
 variable "iam_policy_document_config" {
     description = "Object to create I am policy Document"
     type = object({
-        statement = list(object({
+        statement = optional(list(object({
             sid = optional(string, null)
             effect = optional(string, "Allow")
             actions = optional(list(string), null)
@@ -16,6 +16,7 @@ variable "iam_policy_document_config" {
                 type = string
                 identifiers = list(string)
             })))
-        }))
+        })))
     })
+    default = {}
 }

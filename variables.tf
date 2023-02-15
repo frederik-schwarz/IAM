@@ -16,11 +16,11 @@ variable "create_iam_policy" {
   type = bool
 }
 
-# variable "create_iam_role" {
-#   description = "Create new IAM Role."
-#   type = bool
-#   default = false
-# }
+variable "create_iam_role" {
+  description = "Create new IAM Role."
+  type = bool
+  default = false
+}
 
 variable "iam_group_config" {
   description = "Object to create iam Group"
@@ -47,25 +47,28 @@ variable "iam_group_membership_config" {
   default = {}
 }
 
-# variable "iam_role_config" {
-#   description = "Object to create iam role"
-#   type = object({
-#     name = optional(string, null)
-#     assume_role_policy = optional(string, "")
-#     description = optional(string, null)
-#     force_detach_policies = optional(bool, false)
-#     managed_policy_arns = optional(list(string), null)
-#     max_session_duration = optional(number, 3600)
-#     path = optional(string, null)
-#     permissions_boundary = optional(string, null)
-#     tags = optional(map(string), null)
-#   })
-# }
+variable "iam_role_config" {
+  description = "Object to create iam role"
+  type = object({
+    name = optional(string, null)
+    assume_role_policy = optional(string, "")
+    description = optional(string, null)
+    force_detach_policies = optional(bool, false)
+    managed_policy_arns = optional(list(string), null)
+    max_session_duration = optional(number, 3600)
+    path = optional(string, null)
+    permissions_boundary = optional(string, null)
+    tags = optional(map(string), null)
+  })
+  default = {
+    assume_role_policy = ""
+  }
+}
 
 variable "iam_policy_document_config" {
     description = "Object to create I am policy Document"
     type = object({
-        statement = list(object({
+        statement = optional(list(object({
             sid = optional(string, null)
             effect = optional(string, "Allow")
             actions = optional(list(string), null)
@@ -74,16 +77,18 @@ variable "iam_policy_document_config" {
                 type = string
                 identifiers = list(string)
             })))
-        }))
+        })))
     })
+    default = {}
 }
 
-# variable "iam_policy_config" {
-#   description = "Object to create IAM policy with."
-#   type = object({
-#     name = optional(string, null)
-#     path = optional(string,null)
-#     description = optional(string, null)
-#     policy = optional(string, "")
-#   })
-# }
+variable "iam_policy_config" {
+  description = "Object to create IAM policy with."
+  type = object({
+    name = optional(string, null)
+    path = optional(string,null)
+    description = optional(string, null)
+    policy = optional(string, "")
+  })
+  default = {}
+}
