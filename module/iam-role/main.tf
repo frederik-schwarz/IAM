@@ -1,7 +1,7 @@
 resource "aws_iam_role" "dev_managed" {
   count = var.create_iam_role ? 1 : 0 
 
-  name = var.iam_role_config.role
+  name = var.iam_role_config.name
   description = var.iam_role_config.description
   path = var.iam_role_config.path
   permissions_boundary = var.iam_role_config.permissions_boundary
