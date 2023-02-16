@@ -1,4 +1,4 @@
-variable "iam_policy_document" {
+output "iam_policy_document" {
   depends_on = [
     module.iam_policy_document[0]
   ]
