@@ -22,12 +22,12 @@ module "iam_role" {
   iam_role_config = var.iam_role_config
 }
 
-module "iam_policy_document" {
+module "iam_policy_assume_document" {
   count = var.create_iam_policy_document ? 1 : 0
 
-  source = "./module/iam-policy-document"
+  source = "./module/iam-policy-assume-document"
   create_iam_policy_document = var.create_iam_policy_document
-  iam_policy_document_config = var.iam_policy_document_config
+  iam_policy_assume_document_config = var.iam_policy_document_config
 }
 
 module "iam_policy" {

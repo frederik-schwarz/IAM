@@ -2,7 +2,7 @@ data "aws_iam_policy_document" "dev_managed" {
   count = var.create_iam_policy_document ? 1 : 0 
 
   dynamic "statement" {
-    for_each = var.iam_policy_document_config.statement
+    for_each = var.iam_policy_assume_document_config.statement
     content {
         sid    = statement.value.sid
         effect = statement.value.effect
