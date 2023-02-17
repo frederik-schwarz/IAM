@@ -4,7 +4,7 @@ variable "create_iam_policy_document" {
   default = false
 }
 
-variable "iam_policy_document_config" {
+variable "iam_policy_assume_document_config" {
     description = "Object to create I am policy Document"
     type = object({
         statement = optional(list(object({
