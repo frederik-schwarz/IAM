@@ -10,4 +10,5 @@ variable "iam_role_policy_attachment" {
     role = optional(string, null)
     policy_arn = optional(string, null)
   })
+  default = {}
 }
