@@ -27,7 +27,7 @@ module "iam_policy_assume_document" {
 
   source = "./module/iam-policy-assume-document"
   create_iam_policy_document = var.create_iam_policy_document
-  iam_policy_assume_document_config = var.iam_policy_document_config
+  iam_policy_assume_document_config = var.iam_policy_assume_document_config
 }
 
 module "iam_policy" {
