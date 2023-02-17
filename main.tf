@@ -37,3 +37,11 @@ module "iam_policy" {
   create_iam_policy = var.create_iam_policy
   iam_policy_config = var.iam_policy_config
 }
+
+module "iam_role_policy_attachment" {
+  count = var.create_iam_role_policy_attachment
+
+  source = "./module/iam_role_policy_attachment"
+  create_iam_role_policy_attachment = var.create_iam_role_policy_attachment
+  iam_role_policy_attachment = var.iam_role_policy_attachment
+}
