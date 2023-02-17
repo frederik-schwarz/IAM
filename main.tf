@@ -39,7 +39,7 @@ module "iam_policy" {
 }
 
 module "iam_role_policy_attachment" {
-  count = var.create_iam_role_policy_attachment
+  count = var.create_iam_role_policy_attachment ? 1 : 0 
 
   source = "./module/iam_role_policy_attachment"
   create_iam_role_policy_attachment = var.create_iam_role_policy_attachment
