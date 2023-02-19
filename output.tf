@@ -19,5 +19,5 @@ output "iam_role_name" {
     module.iam_role[0]
   ]
   description = "IAM role name"
-  value = var.create_iam_role ? module.iam_role[0].name : ""
+  value = var.create_iam_role ? module.iam_role[0].test : ""
 }
