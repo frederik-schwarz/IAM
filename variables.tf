@@ -43,6 +43,12 @@ variable "create_iam_role_policy_attachment" {
   type    = bool
 }
 
+variable "create_iam_instance_profile" {
+  description = "Create IAM instance profile"
+  type = bool
+  default = false
+}
+
 variable "iam_group_membership_config" {
   description = "Object to create IAM Group Membership"
   type = object({
@@ -106,4 +112,12 @@ variable "iam_role_policy_attachment" {
     policy_arn = optional(string, null)
   })
   default = {}
+}
+
+variable "iam_instance_profile" {
+  description = "Object to pass to instance profile."
+  type = object({
+    name = optional(string, null)
+    role = optional(string, null)
+  })
 }

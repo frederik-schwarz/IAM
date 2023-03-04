@@ -19,5 +19,13 @@ output "iam_role_name" {
     module.iam_role[0]
   ]
   description = "IAM role name"
-  value = var.create_iam_role ? module.iam_role[0].test : ""
+  value = var.create_iam_role ? module.iam_role[0].role_name : ""
+}
+
+output "profile_name" {
+  depends_on = [
+    module.iam_instance_profile[0]
+  ]
+  description = "IAM instance profile name"
+  value = var.create_iam_instance_profile ? module.iam_instance_profile[0].profile_name : ""
 }
