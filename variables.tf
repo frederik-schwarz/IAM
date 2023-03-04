@@ -120,4 +120,5 @@ variable "iam_instance_profile" {
     name = optional(string, null)
     role = optional(string, null)
   })
+  default = {}
 }
