@@ -45,3 +45,11 @@ module "iam_role_policy_attachment" {
   create_iam_role_policy_attachment = var.create_iam_role_policy_attachment
   iam_role_policy_attachment = var.iam_role_policy_attachment
 }
+
+module "iam_instance_profile" {
+  count = var.create_iam_instance_profile ? 1 : 0
+
+  source = "./module/iam_instance_profile"
+  create_iam_instance_profile = var.create_iam_instance_profile
+  iam_instance_profile = var.iam_instance_profile
+}
